@@ -23,4 +23,12 @@ public class AppTest extends FluentTest {
       goTo("http://localhost:4567/");
       assertThat(pageSource()).contains("Add a new task:");
   }
+
+  @Test
+  public void taskIsCreated() {
+    goTo("http://localhost:4567/");
+    fill("#description").with("Do the homework");
+    submit(".btn");
+    assertThat(pageSource()).contains("Your task has been saved.");
+  }
 }
