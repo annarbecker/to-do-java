@@ -21,13 +21,6 @@ public class AppTest extends FluentTest {
   @Test
   public void rootTest() {
       goTo("http://localhost:4567/");
-      assertThat(pageSource()).contains("");
+      assertThat(pageSource()).contains("Add a new task:");
   }
-
-  @Test
-  public void method_expectedBehavior_output() {
-    App testApp = new App();
-    assertEquals("output", testApp.getChange("input"));
-  }
-
 }
