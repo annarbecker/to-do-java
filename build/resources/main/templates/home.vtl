@@ -1,10 +1,12 @@
 <h3>To-Do List</h3>
 
 <p>Current Task:</p>
-
 <ul>
-  <li>$task.getDescription()     </li>
+#foreach ($task in $tasks)
+  <li>$task.getDescription()</li>
+#end
 </ul>
+<hr>
 <p>Add a new task:</p>
 <form class="form-group" action="/tasks" method="post">
   <label for="description">Task</label>

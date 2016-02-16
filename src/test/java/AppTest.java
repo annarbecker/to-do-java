@@ -1,4 +1,5 @@
 import org.junit.*;
+import java.util.ArrayList;
 import static org.junit.Assert.*;
 import org.fluentlenium.adapter.FluentTest;
 import org.junit.ClassRule;
@@ -39,5 +40,18 @@ public class AppTest extends FluentTest {
     submit(".btn");
     click("a");
     assertThat(pageSource()).contains("Do the exercise");
+  }
+
+  @Test
+  public void multipleTasksAreDisplayedTest() {
+    goTo("http://localhost:4567");
+    fill("#description").with("Do the exercise");
+    submit(".btn");
+    click("a");
+    fill("#description").with("Do the dishes");
+    submit(".btn");
+    click("a");
+    assertThat(pageSource()).contains("Do the exercise");
+    assertThat(pageSource()).contains("Do the dishes");
   }
 }
